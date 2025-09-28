@@ -40,8 +40,7 @@ University: APJ Abdul Kalam Technological University
   * [Shift Reduce Parser](shiftReduce.c) : Shift-Reduce parser example
   * [Lexical Analyzer](lex.c) : Generic lex program
   * ## DFA for Lexical Analyzer
-
-![Lexical DFA](lexical_dfa.svg)
+  * <img src="lexical_dfa.svg" alt="Lexical DFA" width="80%">
 
 
 ---
