@@ -1,0 +1,3 @@
+int main(){
+	int ch == 1;
+}
