@@ -39,6 +39,10 @@ University: APJ Abdul Kalam Technological University
   * [Intermediate Code Generation](IntermediateCodeGen.c) : Intermediate code generation
   * [Shift Reduce Parser](shiftReduce.c) : Shift-Reduce parser example
   * [Lexical Analyzer](lex.c) : Generic lex program
+  * ## DFA for Lexical Analyzer
+
+![Lexical DFA](lexical_dfa.svg)
+
 
 ---
 
