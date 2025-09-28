@@ -12,15 +12,15 @@ University: APJ Abdul Kalam Technological University
 
   * Lexical Analysis Programs:
 
-    * [armstrong.l](Lex/armstrong.l)
-    * [calculator.l](Lex/calculator.l)
-    * [evenOdd.l](Lex/evenOdd.l)
-    * [nLinesSpacesTabs.l](Lex/nLinesSpacesTabs.l)
-    * [palindrome.l](Lex/palindrome.l)
-    * [positivesCnt.l](Lex/positivesCnt.l)
-    * [prime.l](Lex/prime.l)
-    * [vowelConsonant.l](Lex/vowelConsonant.l)
-    * [lex.l](Lex/lex.l)
+    * [Armstrong](Lex/armstrong.l)
+    * [Calculator](Lex/calculator.l)
+    * [evenOdd](Lex/evenOdd.l)
+    * [LinesSpacesTabs](Lex/nLinesSpacesTabs.l)
+    * [Palindrome](Lex/palindrome.l)
+    * [PositivesCnt](Lex/positivesCnt.l)
+    * [Prime](Lex/prime.l)
+    * [VowelConsonant](Lex/vowelConsonant.l)
+    * [Lexical Analyzer](Lex/lex.l)
   * Input Files:
 
     * [input.txt](Lex/input.txt)
@@ -30,15 +30,15 @@ University: APJ Abdul Kalam Technological University
 
   * Parser Programs:
 
-    * [ExpressionEval.y](Yacc/ExpressionEval.y)
-    * [ExpressionEval.l](Yacc/ExpressionEval.l)
+    * [Expression Evaluation (Lex)](Yacc/ExpressionEval.y)
+    * [Expression Evaluation (Yacc)](Yacc/ExpressionEval.l)
 
 * **Other Programs**
 
-  * [firstNFollw.c](firstNFollw.c) : First and Follow set computation
-  * [IntermediateCodeGen.c](IntermediateCodeGen.c) : Intermediate code generation
-  * [shiftReduce.c](shiftReduce.c) : Shift-Reduce parser example
-  * [lex.c](lex.c) : Generic lex program
+  * [First And Follow](firstNfollow.c) : First and Follow set computation
+  * [Intermediate Code Generation](IntermediateCodeGen.c) : Intermediate code generation
+  * [Shift Reduce Parser](shiftReduce.c) : Shift-Reduce parser example
+  * [Lexical Analyzer](lex.c) : Generic lex program
 
 ---
 
