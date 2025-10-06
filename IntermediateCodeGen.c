@@ -7,6 +7,8 @@ int tmpCount = 0;
 // Function to check operator precedence
 int precedence(char op) {
     switch (op) {
+        case '=':
+            return 0; 
         case '+':
         case '-':
             return 1;
@@ -40,7 +42,7 @@ void infixToPostfix(char* expr, char* postfix) {
             top--; // remove '('
         } 
         else {  // Operator
-            while (top != -1 && ((expr[i] != '^' && precedence(stack[top]) >= precedence(expr[i])))) {
+            while (top != -1 && (expr[i] != '^') && (expr[i] != '=') && (precedence(stack[top]) >= precedence(expr[i]))) {
                 postfix[k++] = stack[top--];
             }
             stack[++top] = expr[i];
@@ -61,6 +63,7 @@ void parsePostfix(char* postfix) {
     int top = -1;
     int i = 0;
     char result[10];
+    FILE *fout = fopen("output.txt", "w");
 
     while (postfix[i] != '\0') {
         if (isalnum(postfix[i])) {
@@ -70,10 +73,15 @@ void parsePostfix(char* postfix) {
             char arg2[10], arg1[10];
             strcpy(arg2, stack[top--]);
             strcpy(arg1, stack[top--]);
-
-            sprintf(result, "T%d", tmpCount++);
+            if (postfix[i] == '='){
+                strcpy(result, arg1);
+                strcpy(arg1, arg2);
+                strcpy(arg2, "-");
+            }
+            else
+                sprintf(result, "T%d", tmpCount++);
             printf("%-9c %-9s %-9s %-9s\n", postfix[i], arg1, arg2, result);
-
+            fprintf(fout, "%-9c %-9s %-9s %-9s\n", postfix[i], arg1, arg2, result);
             strcpy(stack[++top], result);
         }
         i++;
@@ -83,7 +91,8 @@ void parsePostfix(char* postfix) {
 int main() {
     char expr[100];
     char postfix[100];
-
+    // FILE *fin = fopen("input.txt", "r");
+    // fscanf(fin, "%99s", expr);    
     printf("Enter an infix expression: ");
     scanf("%99s", expr);   // safer input
 
