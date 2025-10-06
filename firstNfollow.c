@@ -76,24 +76,34 @@ void follow(char Result[], char c) {
     for (i = 0; i < n; i++) {
         for (j = 1; j < strlen(a[i]); j++) {
             if (a[i][j] == c) {
-                if (a[i][j + 1] != '\0') {
-                    subResult[0] = '\0';
-                    first(subResult, a[i][j + 1]);
+                int k = j + 1;
 
-                    int k;
-                    for (k = 0; subResult[k] != '\0'; k++) {
-                        if (subResult[k] != '#') // epsilon not in FIRST
-                            addToResultSet(Result, subResult[k]);
+                while (a[i][k] != '\0') {
+                    subResult[0] = '\0';
+                    first(subResult, a[i][k]);
+
+                    int m, hasEps = 0;
+                    for (m = 0; subResult[m] != '\0'; m++) {
+                        if (subResult[m] == '#')
+                            hasEps = 1;
                         else
-                            follow(Result, a[i][0]);
+                            addToResultSet(Result, subResult[m]);
                     }
-                } else if (a[i][0] != c) {
-                    follow(Result, a[i][0]);
+
+                    if (!hasEps)
+                        break;
+
+                    k++;
                 }
+
+                // Add FOLLOW(LHS) if we reached end of RHS or all following symbols are nullable
+                if (a[i][k] == '\0' && a[i][0] != c)
+                    follow(Result, a[i][0]);
             }
         }
     }
 }
+
 
 void first(char Result[], char c) {
     int i;
