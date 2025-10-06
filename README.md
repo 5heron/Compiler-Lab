@@ -1,119 +1,120 @@
 # COMPILER-LAB
 
-[![download](https://img.shields.io/badge/Direct_Download-zip-blue.svg?logo=appveyor\&longCache=true\&style=for-the-badge)](https://github.com/5heron/COMPILER-LAB/archive/refs/heads/main.zip)
+[![download](https://img.shields.io/badge/Direct_Download-zip-blue.svg?logo=appveyor&longCache=true&style=for-the-badge)](https://github.com/5heron/COMPILER-LAB/archive/refs/heads/main.zip)
 
-B.Tech CSE Compiler Design Lab
+B.Tech CSE Compiler Design Lab  
+**University:** APJ Abdul Kalam Technological University
 
-University: APJ Abdul Kalam Technological University
+---
 
 ## 📌 Content
 
-* **[Lex](Lex)**
+### **Lex Programs**
+**Lexical Analysis Programs:**
+- [Armstrong](Lex/armstrong.l)
+- [Calculator](Lex/calculator.l)
+- [EvenOdd](Lex/evenOdd.l)
+- [LinesSpacesTabs](Lex/nLinesSpacesTabs.l)
+- [Palindrome](Lex/palindrome.l)
+- [Positives Count](Lex/positivesCnt.l)
+- [Prime](Lex/prime.l)
+- [Vowel Consonant](Lex/vowelConsonant.l)
+- [Lexical Analyzer](Lex/lex.l)
 
-  * Lexical Analysis Programs:
+**Input Files:**
+- [input.txt](Lex/input.txt)
+- [inputNumbers.txt](Lex/inputNumbers.txt)
 
-    * [Armstrong](Lex/armstrong.l)
-    * [Calculator](Lex/calculator.l)
-    * [evenOdd](Lex/evenOdd.l)
-    * [LinesSpacesTabs](Lex/nLinesSpacesTabs.l)
-    * [Palindrome](Lex/palindrome.l)
-    * [PositivesCnt](Lex/positivesCnt.l)
-    * [Prime](Lex/prime.l)
-    * [VowelConsonant](Lex/vowelConsonant.l)
-    * [Lexical Analyzer](Lex/lex.l)
-  * Input Files:
+---
 
-    * [input.txt](Lex/input.txt)
-    * [inputNumbers.txt](Lex/inputNumbers.txt)
+### **Yacc / Bison Programs**
 
-* **[Yacc](Yacc)**
+#### Expression Evaluation
+- **Lex file:** [Expression Evaluation](Yacc/ExpressionEval.l)  
+- **Yacc file:** [Expression Evaluation](Yacc/ExpressionEval.y)  
 
-  * Parser Programs:
+#### Expression Validation
+- **Lex file:** [Expression Validation](Yacc/ValidExpression.l)  
+- **Yacc file:** [Expression Validation](Yacc/ValidExpression.y)  
 
-    * [Expression Evaluation (Lex)](Yacc/ExpressionEval.y)
-    * [Expression Evaluation (Yacc)](Yacc/ExpressionEval.l)
+#### Identifier / Declaration Validation
+- **Lex file:** [Identifier Validation](Yacc/ValidDeclaration.l)  
+- **Yacc file:** [Identifier Validation](Yacc/ValidDeclaration.y)  
 
-* **Other Programs**
+---
 
-  * [First And Follow](firstNfollow.c) : First and Follow set computation
-  * [Intermediate Code Generation](IntermediateCodeGen.c) : Intermediate code generation
-  * [Shift Reduce Parser](shiftReduce.c) : Shift-Reduce parser example
-  * [Recursive Descent Parser](RecursiveDescent.c) : Recursive Descent parser example
-  * [Lexical Analyzer](lex.c) : Generic lex program
-  * ## DFA for Lexical Analyzer
-  * <img src="lexical_dfa.svg" alt="Lexical DFA" width="600">
+### **Other Programs**
+- [First And Follow](firstNfollow.c) – First and Follow set computation  
+- [Intermediate Code Generation](IntermediateCodeGen.c) – Intermediate code generation  
+- [Shift Reduce Parser](shiftReduce.c) – Shift-Reduce parser example  
+- [Recursive Descent Parser](RecursiveDescent.c) – Recursive Descent parser example  
+- [Lexical Analyzer](lex.c) – Generic lex program  
 
+#### DFA for Lexical Analyzer
+<img src="lexical_dfa.svg" alt="Lexical DFA" width="600">
 
 ---
 
 ## 🔧 Requirements
 
-1. **Flex & Bison**
+1. **Flex & Bison**  
+   - Linux: `sudo apt install flex bison`  
+   - Windows: [Cygwin](https://www.cygwin.com/) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/)
 
-   * Linux: install via package manager (`sudo apt install flex bison`)
-   * Windows: install via [Cygwin](https://www.cygwin.com/) or [WSL](https://learn.microsoft.com/en-us/windows/wsl/)
+2. **GCC Compiler**  
+   - Linux: usually pre-installed  
+   - Windows: [TDM-GCC MinGW Compiler](https://sourceforge.net/projects/tdm-gcc/)
 
-2. **GCC Compiler**
-
-   * Linux: usually pre-installed
-   * Windows: [TDM-GCC MinGW Compiler](https://sourceforge.net/projects/tdm-gcc/)
-
-3. **Any Text Editor**
-
-   * [VS Code](https://code.visualstudio.com/)
-   * [Sublime Text](https://www.sublimetext.com/)
-   * [Atom](https://atom.io/)
+3. **Any Text Editor**  
+   - [VS Code](https://code.visualstudio.com/)  
+   - [Sublime Text](https://www.sublimetext.com/)  
+   - [Atom](https://atom.io/)
 
 ---
 
 ## 🚀 Getting Started
 
-Clone this repo:
+Clone the repository:
 
 ```sh
-$ git clone https://github.com/5heron/COMPILER-LAB.git
+git clone https://github.com/5heron/COMPILER-LAB.git
+cd COMPILER-LAB
+````
+
+### **Running Lex Programs**
+
+1. Compile using Flex:
+
+```sh
+flex filename.l
+gcc lex.yy.c -o program -lfl
 ```
 
-Switch to the program folder:
+2. Run:
 
 ```sh
-$ cd COMPILER-LAB
+./program
 ```
 
-### **🖥️ Running Lex Programs**
+### **Running Yacc/Bison Programs**
 
-1. **Compile using Flex**
+1. Generate parser and lexer:
 
 ```sh
-$ flex filename.l
-$ gcc lex.yy.c -o program -lfl
+bison -d ExpressionEval.y
+flex ExpressionEval.l
 ```
 
-2. **Run the program**
+2. Compile both:
 
 ```sh
-$ ./program
+gcc y.tab.c lex.yy.c -o expr_eval -lfl
 ```
 
-### **🖥️ Running Yacc/Bison Programs**
-
-1. **Generate parser and lexer**
+3. Run:
 
 ```sh
-$ bison -d ExpressionEval.y
-$ flex ExpressionEval.l
-```
-
-2. **Compile both**
-
-```sh
-$ gcc y.tab.c lex.yy.c -o expr_eval -lfl
-```
-
-3. **Run the program**
-
-```sh
-$ ./expr_eval
+./expr_eval
 ```
 
 ---
@@ -121,5 +122,3 @@ $ ./expr_eval
 ## ⭐ Spread the Word!
 
 If you found this helpful, give it a ⭐ and share it with your peers!
-
- next?
