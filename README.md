@@ -38,7 +38,11 @@ University: APJ Abdul Kalam Technological University
   * [First And Follow](firstNfollow.c) : First and Follow set computation
   * [Intermediate Code Generation](IntermediateCodeGen.c) : Intermediate code generation
   * [Shift Reduce Parser](shiftReduce.c) : Shift-Reduce parser example
+  * [Recursive Descent Parser](RecursiveDescent.c) : Recursive Descent parser example
   * [Lexical Analyzer](lex.c) : Generic lex program
+  * ## DFA for Lexical Analyzer
+  * <img src="lexical_dfa.svg" alt="Lexical DFA" width="600">
+
 
 ---
 
