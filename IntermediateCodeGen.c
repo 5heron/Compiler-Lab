@@ -63,7 +63,7 @@ void parsePostfix(char* postfix) {
     int top = -1;
     int i = 0;
     char result[10];
-    FILE *fout = fopen("output.txt", "w");
+    FILE *fout = fopen("icode.txt", "w");
 
     while (postfix[i] != '\0') {
         if (isalnum(postfix[i])) {
