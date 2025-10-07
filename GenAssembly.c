@@ -9,7 +9,7 @@ typedef struct {
 } Quadruple;
 
 int main() {
-    FILE *fin = fopen("optcode.txt", "r");
+    FILE *fin = fopen("opt2code.txt", "r");
     if (!fin) {
         printf("Error opening file.\n");
         return 1;

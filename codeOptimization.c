@@ -19,7 +19,7 @@ int isNumber(char *str) {
 
 int main() {
     FILE *fin = fopen("icode.txt","r"); // input file with intermediate code
-    FILE *fout = fopen("optcode.txt", "w");
+    FILE *fout = fopen("opt1code.txt", "w");
     if (!fin) {
         printf("Error: Could not open input file\n");
         return 1;
