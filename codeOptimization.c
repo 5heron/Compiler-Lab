@@ -50,9 +50,11 @@ int main() {
             q[i].op='=';
         }
         // propagate constants
-        for(int j=i+1;j<n;j++){
-            if(strcmp(q[i].result,q[j].arg1)==0 && isNumber(q[i].arg1)) strcpy(q[j].arg1,q[i].arg1);
-            if(strcmp(q[i].result,q[j].arg2)==0 && isNumber(q[i].arg1)) strcpy(q[j].arg2,q[i].arg1);
+        if (q[i].op == '=' && isNumber(q[i].arg1)) {
+            for(int j=i+1;j<n;j++){
+                if(strcmp(q[i].result,q[j].arg1)==0) strcpy(q[j].arg1,q[i].arg1);
+                if(strcmp(q[i].result,q[j].arg2)==0) strcpy(q[j].arg2,q[i].arg1);
+            }
         }
     }
 
