@@ -47,10 +47,16 @@ B.Tech CSE Compiler Design Lab
 - [First And Follow](firstNfollow.c) – First and Follow set computation  
 - [Intermediate Code Generation](IntermediateCodeGen.c) – Intermediate code generation
 - [Code Optimization](codeOptimization.c) - Constant folding and propogation
+- [Dead Code Elimination](DeadCodeElimination.c) - Common subexpression elimination and dead code elimination
 - [Assembly Code Generation](GenAssembly.c) - Assembly code generation
 - [Shift Reduce Parser](shiftReduce.c) – Shift-Reduce parser example  
 - [Recursive Descent Parser](RecursiveDescent.c) – Recursive Descent parser example  
-- [Lexical Analyzer](lex.c) – Generic lex program  
+- [Lexical Analyzer](lex.c) – Generic lex program
+
+**Input and Output Files:**
+- [Intermediate code](icode.txt)
+- [Optimized code 1](opt1code.txt)
+- [Optimized code 2](opt2code.txt)
 
 #### DFA for Lexical Analyzer
 <img src="lexical_dfa.svg" alt="Lexical DFA" width="600">
