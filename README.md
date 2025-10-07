@@ -109,7 +109,7 @@ gcc lex.yy.c -o program -lfl
 1. Generate parser and lexer:
 
 ```sh
-bison -d ExpressionEval.y
+yacc -d ExpressionEval.y
 flex ExpressionEval.l
 ```
 
