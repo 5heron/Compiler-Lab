@@ -10,6 +10,8 @@ typedef struct {
     char arg2[10];
 } Quadruple;
 
+//Paste intermediatCodeGen.c code except main()
+
 // Check if a string is a number
 int isNumber(char *str) {
     for (int i = 0; str[i]; i++)
@@ -18,8 +20,35 @@ int isNumber(char *str) {
 }
 
 int main() {
-    FILE *fin = fopen("icode.txt","r"); // input file with intermediate code
-    FILE *fout = fopen("opt1code.txt", "w");
+    FILE *fin, *fout;
+    // fin = fopen("inputExpressions.txt", "r");
+    // fout = fopen("icode.txt", "w");
+
+    // if (!fin || !fout) {
+    //     printf("Error opening file.\n");
+    //     return 1;
+    // }
+
+    // char expr[100];
+    // char postfix[100];
+    // tmpCount = 0;
+
+    // printf("%-9s %-9s %-9s %-9s\n", "Operator", "Arg1", "Arg2", "Result");
+    // printf("------------------------------------------------\n");
+
+    // // --- Read multiple expressions ---
+    // while (fgets(expr, sizeof(expr), fin)) {
+    //     if (strlen(expr) == 0) continue;  // skip blank lines
+    //     if (expr[strlen(expr) - 1] == '\n') expr[strlen(expr) - 1] = '\0'; // Clean line endings
+    //     infixToPostfix(expr, postfix);
+    //     parsePostfix(postfix, fout);
+    // }
+
+    // fclose(fin);
+    // fclose(fout);
+    
+    fin = fopen("icode.txt","r"); // input file with intermediate code
+    fout = fopen("opt1code.txt", "w");
     if (!fin) {
         printf("Error: Could not open input file\n");
         return 1;
