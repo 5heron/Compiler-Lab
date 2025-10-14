@@ -31,8 +31,10 @@ void infixToPostfix(char* expr, char* postfix) {
         if (isspace(expr[i])) continue;  // skip spaces
         
         if (isalnum(expr[i])) {
-            postfix[k++] = expr[i];
-        } 
+            while (isalnum(expr[i])) postfix[k++] = expr[i++];
+            postfix[k++] = ' ';  // separate token
+            i--; // adjust because for-loop increments i
+        }
         else if (expr[i] == '(') {
             stack[++top] = expr[i];
         } 
@@ -63,8 +65,11 @@ void parsePostfix(char* postfix, FILE *fout) {
 
     for (int i = 0; postfix[i] != '\0'; i++) {
         if (isalnum(postfix[i])) {
-            stack[++top][0] = postfix[i];
-            stack[top][1] = '\0';
+            char operand[10];
+            int j = 0;
+            while (postfix[i] != ' ') operand[j++] = postfix[i++];
+            operand[j] = '\0';
+            strcpy(stack[++top], operand);
         } else {
             char arg2[10], arg1[10];
             strcpy(arg2, stack[top--]);

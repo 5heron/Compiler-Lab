@@ -1,4 +1,9 @@
-x=a+b
-t=x*c
-y=a+b
-d=t2
+a = 2 + 3
+b = 4 * 5
+c = a + b
+d = a + b
+e = d * 2
+f = x + y
+g = f + 0
+h = e + c
+i = h + j
