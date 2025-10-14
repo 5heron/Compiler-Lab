@@ -24,7 +24,6 @@ B.Tech CSE Compiler Design Lab
 **Input Files:**
 - [input.txt](Lex/input.txt)
 - [inputNumbers.txt](Lex/inputNumbers.txt)
-- [inputExpressions.txt](inputExpressions.txt)
 
 ---
 
@@ -55,6 +54,7 @@ B.Tech CSE Compiler Design Lab
 - [Lexical Analyzer](lex.c) – Generic lex program
 
 **Input and Output Files:**
+- [Input Expressions](inputExpressions.txt)
 - [Intermediate code](icode.txt)
 - [Optimized code 1](opt1code.txt)
 - [Optimized code 2](opt2code.txt)
