@@ -24,6 +24,7 @@ B.Tech CSE Compiler Design Lab
 **Input Files:**
 - [input.txt](Lex/input.txt)
 - [inputNumbers.txt](Lex/inputNumbers.txt)
+- [inputExpressions.txt](inputExpressions.txt)
 
 ---
 
