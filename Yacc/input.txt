@@ -1,0 +1,13 @@
+for (i = 0; i < 3; i = i + 1) {
+    while (j < 2) {
+        if (i == j) {
+            x = x + 1;
+        } else {
+            y = y + 1;
+        }
+        j = j + 1;
+    }
+    do {
+        i = i + 1;
+    } while (i < 5);
+}
