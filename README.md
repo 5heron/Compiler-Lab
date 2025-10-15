@@ -39,8 +39,14 @@ B.Tech CSE Compiler Design Lab
 
 #### Identifier / Declaration Validation
 - **Lex file:** [Identifier Validation](Yacc/ValidDeclaration.l)  
-- **Yacc file:** [Identifier Validation](Yacc/ValidDeclaration.y)  
+- **Yacc file:** [Identifier Validation](Yacc/ValidDeclaration.y)
 
+#### C Program Structs Parser
+- **Lex file:** [C Program Validation](Yacc/Cprogram.l)  
+- **Yacc file:** [C Program Validation](Yacc/Cprogram.y)  
+
+**Input Files:**
+- [input.txt](Yacc/input.txt)
 ---
 
 ### **Other Programs**
