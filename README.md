@@ -52,8 +52,8 @@ B.Tech CSE Compiler Design Lab
 ### **Other Programs**
 - [First And Follow](firstNfollow.c) – First and Follow set computation  
 - [Intermediate Code Generation](IntermediateCodeGen.c) – Intermediate code generation
-- [Code Optimization](codeOptimization.c) - Constant folding and propogation
-- [Dead Code Elimination](DeadCodeElimination.c) - Common subexpression elimination and dead code elimination
+- [Constant Folding and Propogation](ConstantFolding.c) - Constant folding and propogation
+- [Common Subexpression Elimination](CommonSubElimination.c) - Common subexpression elimination and dead code elimination
 - [Assembly Code Generation](GenAssembly.c) - Assembly code generation
 - [Shift Reduce Parser](shiftReduce.c) – Shift-Reduce parser example  
 - [Recursive Descent Parser](RecursiveDescent.c) – Recursive Descent parser example  
