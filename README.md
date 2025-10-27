@@ -49,7 +49,7 @@ B.Tech CSE Compiler Design Lab
 - [input.txt](Yacc/input.txt)
 ---
 
-### **Other Programs**
+### **C Programs**
 - [First And Follow](firstNfollow.c) – First and Follow set computation  
 - [Intermediate Code Generation](IntermediateCodeGen.c) – Intermediate code generation
 - [Constant Folding and Propogation](ConstantFolding.c) - Constant folding and propogation
