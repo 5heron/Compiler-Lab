@@ -44,20 +44,20 @@ int main() {
     for (int i = 0; i < n; i++) {
         if (q[i].op == '=') continue;
         for (int j = i + 1; j < n; j++) {
-            if (q[i].op == q[j].op &&
+            if (q[i].op == q[j].op && //if subexp matches (eg. a = b + c and d = b + c), subexp matches (b + c)
                 strcmp(q[i].arg1, q[j].arg1) == 0 &&
-                strcmp(q[i].arg2, q[j].arg2) == 0) {
+                strcmp(q[i].arg2, q[j].arg2) == 0) { //same operation, args in subexp => subexp match
 
                 // Replace later uses of q[j].result with q[i].result
-                for (int k = j + 1; k < n; k++) {
-                    if (strcmp(q[j].result, q[k].arg1) == 0)
+                for (int k = j + 1; k < n; k++) { //go through next equations
+                    if (strcmp(q[j].result, q[k].arg1) == 0) //eg. if d used as arg1, replace with a
                         strcpy(q[k].arg1, q[i].result);
-                    if (strcmp(q[j].result, q[k].arg2) == 0)
+                    if (strcmp(q[j].result, q[k].arg2) == 0) //eg. if d used as arg2, replace with a
                         strcpy(q[k].arg2, q[i].result);
                 }
                 q[j].isDead = 1;
             }
-            //if either arg of common subexpression is redefined
+            //if either arg of common subexpression is redefined (eg. b or c redefined)
             if (strcmp(q[j].result, q[i].arg1) == 0 || strcmp(q[j].result, q[i].arg2) == 0) break; 
         }
     }
