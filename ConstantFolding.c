@@ -46,8 +46,9 @@ int main() {
     fclose(fin);
 
     // Constant folding & propagation
-    for(int i=0;i<n;i++){
-        if(isNumber(q[i].arg1) && isNumber(q[i].arg2)){
+    for(int i=0;i<n;i++){ // for each quadraple
+        if(isNumber(q[i].arg1) && isNumber(q[i].arg2)){ //if both arguments are constants (eg. a = 2 + 3). 2 + 3 is the subexpression
+            //Evaluate the subexpression
             int val1 = atoi(q[i].arg1);
             int val2 = atoi(q[i].arg2);
             int res = 0;
@@ -57,16 +58,18 @@ int main() {
                 case '*': res=val1*val2; break;
                 case '/': res=val2? val1/val2:0; break;
             }
+            //change the operation to '=' (eg. Quad: + 2 3 a, becomes Quad: = 5 - a)
             sprintf(q[i].arg1,"%d",res);
             strcpy(q[i].arg2,"-");
             q[i].op='=';
+            //after constant folding a = 2 + 3 becomes a = 5
         }
-        // propagate constants
-        if (q[i].op == '=' && isNumber(q[i].arg1)) {
+        // propagate constants 
+        if (q[i].op == '=' && isNumber(q[i].arg1)) { //if expression is like a = 5
             for(int j=i+1;j<n;j++){
-                if(strcmp(q[i].result,q[j].arg1)==0) strcpy(q[j].arg1,q[i].arg1);
-                if(strcmp(q[i].result,q[j].arg2)==0) strcpy(q[j].arg2,q[i].arg1);
-                if(strcmp(q[i].result,q[j].result)==0) break; //
+                if(strcmp(q[i].result,q[j].arg1)==0) strcpy(q[j].arg1,q[i].arg1); //find where a is used as arg1, replace with 5 
+                if(strcmp(q[i].result,q[j].arg2)==0) strcpy(q[j].arg2,q[i].arg1); //find where a is used as arg2, replace with 5
+                if(strcmp(q[i].result,q[j].result)==0) break; //if a redefined (eg. a = 7), stop propogation
             }
         }
     }
