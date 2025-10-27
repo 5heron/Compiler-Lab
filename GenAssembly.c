@@ -8,36 +8,10 @@ typedef struct {
     char arg2[10];
 } Quadruple;
 
-//Paste intermediatCodeGen.c code except main()
 
 int main() {
-    FILE *fin, *fout;
-    // fin = fopen("inputExpressions.txt", "r");
-    // fout = fopen("opt2code.txt", "w");
-
-    // if (!fin || !fout) {
-    //     printf("Error opening file.\n");
-    //     return 1;
-    // }
-
-    // char expr[100];
-    // char postfix[100];
-    // tmpCount = 0;
-
-    // printf("%-9s %-9s %-9s %-9s\n", "Operator", "Arg1", "Arg2", "Result");
-    // printf("------------------------------------------------\n");
-
-    // // --- Read multiple expressions ---
-    // while (fgets(expr, sizeof(expr), fin)) {
-    //     if (strlen(expr) == 0) continue;  // skip blank lines
-    //     if (expr[strlen(expr) - 1] == '\n') expr[strlen(expr) - 1] = '\0'; // Clean line endings
-    //     infixToPostfix(expr, postfix);
-    //     parsePostfix(postfix, fout);
-    // }
-
-    // fclose(fin);
-    // fclose(fout);
-    fin = fopen("opt2code.txt", "r");
+    FILE *fin;
+    fin = fopen("inputExpressions.txt", "r");
     if (!fin) {
         printf("Error opening file.\n");
         return 1;
@@ -46,9 +20,20 @@ int main() {
     Quadruple q[50];
     int n = 0;
 
-    // Read lines in format: Operator Arg1 Arg2 Result
-    while (fscanf(fin, " %c %s %s %s", &q[n].op, q[n].arg1, q[n].arg2, q[n].result) == 4) 
+    char line[100];
+    printf("%-9s %-9s %-9s %-9s\n", "Operator", "Arg1", "Arg2", "Result");
+    printf("------------------------------------------------\n");
+    while (fgets(line, sizeof(line), fin)) {
+        if (sscanf(line, " %s = %s %c %s", q[n].result, q[n].arg1, &q[n].op, q[n].arg2) == 4) {
+            // Format: a = b + c
+        }
+        else if (sscanf(line, " %s = %s", q[n].result, q[n].arg1) == 2) {
+            q[n].op = '=';
+            strcpy(q[n].arg2, "-");
+        }
+        printf("%-9c %-9s %-9s %-9s\n", q[n].op, q[n].arg1, q[n].arg2, q[n].result); 
         n++;
+    }
     fclose(fin);
 
     printf("Generated Assembly Code:\n\n");
