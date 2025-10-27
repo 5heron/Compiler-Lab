@@ -63,17 +63,17 @@ int main() {
     }
 
     // --- Dead Code Elimination ---
-    for (int i = 0; i < n; i++) {
-        int used = 0;
-        for (int j = i + 1; j < n; j++) {
-            if (strcmp(q[i].result, q[j].arg1) == 0 ||
-                strcmp(q[i].result, q[j].arg2) == 0) {
-                used = 1;
-                break;
-            }
-        }
-        if (!used) q[i].isDead = 1;
-    }
+    // for (int i = 0; i < n; i++) {
+    //     int used = 0;
+    //     for (int j = i + 1; j < n; j++) {
+    //         if (strcmp(q[i].result, q[j].arg1) == 0 ||
+    //             strcmp(q[i].result, q[j].arg2) == 0) {
+    //             used = 1;
+    //             break;
+    //         }
+    //     }
+    //     if (!used) q[i].isDead = 1;
+    // }
 
     printf("\nOptimized Code :\n");
     printf("%-9s %-9s %-9s %-9s\n", "Operator", "Arg1", "Arg2", "Result");
