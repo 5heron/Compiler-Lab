@@ -54,11 +54,17 @@ int main() {
                         strcpy(q[k].arg1, q[i].result);
                     if (strcmp(q[j].result, q[k].arg2) == 0) //eg. if d used as arg2, replace with a
                         strcpy(q[k].arg2, q[i].result);
+                    //if either arg of common subexpression is redefined (eg. b or c redefined)
+                    if (strcmp(q[k].result, q[i].arg1) == 0 || strcmp(q[k].result, q[i].arg2) == 0) break;
+                    //if either result var redefined (eg. a or d redefined) 
+                    if (strcmp(q[j].result, q[k].result) == 0 || strcmp(q[i].result, q[k].result) == 0) break;
                 }
                 q[j].isDead = 1;
             }
             //if either arg of common subexpression is redefined (eg. b or c redefined)
-            if (strcmp(q[j].result, q[i].arg1) == 0 || strcmp(q[j].result, q[i].arg2) == 0) break; 
+            if (strcmp(q[j].result, q[i].arg1) == 0 || strcmp(q[j].result, q[i].arg2) == 0) break;
+            //if result var redefined (eg. a redefined) 
+            if (strcmp(q[i].result, q[j].result) == 0) break; 
         }
     }
 
