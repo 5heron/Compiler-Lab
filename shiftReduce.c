@@ -31,7 +31,7 @@ void reduce() {
             strcpy(stack[i], "E");
             // shift stack left
             for (int j = i+1; j <= top-2; j++)
-                strcpy(stack[j], stack[j+3]);
+                strcpy(stack[j], stack[j+2]);
             top -= 2;
         }
     }
