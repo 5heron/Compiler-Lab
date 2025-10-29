@@ -44,7 +44,7 @@ void infixToPostfix(char* expr, char* postfix) {
             top--; // remove '('
         } 
         else { // Operator
-            while (top != -1 && expr[i] != '^' && expr[i] != '=' && precedence(stack[top]) >= precedence(expr[i])) {
+            while (top != -1 && stack[top] != '(' && expr[i] != '^' && expr[i] != '=' && precedence(stack[top]) >= precedence(expr[i])) {
                 postfix[k++] = stack[top--];
             }
             stack[++top] = expr[i];
