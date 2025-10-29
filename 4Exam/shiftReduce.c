@@ -63,8 +63,7 @@ int main() {
                     // only check if stack has enough symbols
                     if (top + 1 >= len) {
                         // compare the top of stack substring with RHS
-                        if (strncmp(stack + top - len + 1, prods[i].rhs, len) == 0 &&
-                            stack[top - len + 1 + len] == '\0') {
+                        if (strncmp(stack + top - len + 1, prods[i].rhs, len) == 0) {
                             // perform reduction
                             top = top - len + 1;
                             stack[top] = prods[i].lhs;
