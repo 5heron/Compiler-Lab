@@ -22,11 +22,8 @@ int main() {
     scanf("%d", &n);
 
     printf("Enter %d productions (use ->, epsilon as #):\n", n);
-    for (i = 0; i < n; i++) {
-        scanf("%s", a[i]);
-        // remove "->" by shifting RHS
-        memmove(a[i] + 1, a[i] + 3, strlen(a[i]) - 2);
-    }
+    for (i = 0; i < n; i++)
+        scanf(" %c->%s", &a[i][0], a[i] + 1);
 
     // Find all nonterminals
     char nonTerminals[MAX_PROD];
