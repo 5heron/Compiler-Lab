@@ -59,40 +59,46 @@ void infixToPostfix(char* expr, char* postfix) {
 
 // --- Generate Intermediate Code ---
 void parsePostfix(char* postfix, FILE *fq, FILE *ft, FILE *fi) {
-    char stack[100][10];
-    int top = -1;
+    char stackQ[100][10], stackT[100][10];
+    int topQ = -1, topT = -1;
     char result[10];
 
     for (int i = 0; postfix[i] != '\0'; i++) {
         if (isalnum(postfix[i])) {
             char operand[10];
             int j = 0;
-            while (postfix[i] != ' ') operand[j++] = postfix[i++];
+            while (postfix[i] != ' ' && postfix[i] != '\0') operand[j++] = postfix[i++];
             operand[j] = '\0';
-            strcpy(stack[++top], operand);
-        } else {
-            char arg2[10], arg1[10];
-            strcpy(arg2, stack[top--]);
-            strcpy(arg1, stack[top--]);
+            strcpy(stackQ[++topQ], operand);
+            strcpy(stackT[++topT], operand);
+        } 
+        else if (!isspace(postfix[i])) {
+            char arg2Q[10], arg1Q[10], arg2T[10], arg1T[10];
+            strcpy(arg2Q, stackQ[topQ--]);
+            strcpy(arg1Q, stackQ[topQ--]);
+            strcpy(arg2T, stackT[topT--]);
+            strcpy(arg1T, stackT[topT--]);
 
             if (postfix[i] == '=') {
-                strcpy(result, arg1);
-                strcpy(arg1, arg2);
-                strcpy(arg2, "-");
+                strcpy(result, arg1Q);
+                strcpy(arg1Q, arg2Q);
+                strcpy(arg2Q, "-");
             } else {
                 sprintf(result, "T%d", tmpCount++);
             }
 
             // --- QUADRUPLES ---
-            fprintf(fq, "(%-2d)   %-6c %-10s %-10s %-10s\n", tripleIndex, postfix[i], arg1, arg2, result);
+            fprintf(fq, "(%-2d)   %-6c %-10s %-10s %-10s\n", tripleIndex, postfix[i], arg1Q, arg2Q, result);
 
             // --- TRIPLES ---
-            fprintf(ft, "(%-2d)   %-6c %-10s %-10s\n", tripleIndex, postfix[i], arg1, arg2);
+            fprintf(ft, "(%-2d)   %-6c %-10s %-10s\n", tripleIndex, postfix[i], arg1T, arg2T);
 
             // --- INDIRECT TRIPLES (Instruction Table) ---
-            fprintf(fi, "(%-2d)   %-6c %-10s %-10s\n", tripleIndex, postfix[i], arg1, arg2);
-
-            strcpy(stack[++top], result);
+            fprintf(fi, "(%-2d)   %-6c %-10s %-10s\n", tripleIndex, postfix[i], arg1T, arg2T);
+            strcpy(stackQ[++topQ], result);
+            char ref[10];
+            sprintf(ref, "(%d)", tripleIndex);
+            strcpy(stackT[++topT], ref);
             tripleIndex++;
         }
     }
