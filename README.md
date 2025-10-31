@@ -11,6 +11,7 @@ B.Tech CSE Compiler Design Lab
 
 ### [Important For Exam](4Exam/)
 
+### [Compact code](compact/)
 
 ### **Lex Programs**
 **Lexical Analysis Programs:**
