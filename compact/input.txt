@@ -1,0 +1,3 @@
+int main(){
+    int valid = 123.69;
+}
